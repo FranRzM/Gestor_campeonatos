@@ -10,15 +10,32 @@
 
         <h2 class="p-4">Crear participantes:</h2>
 
-        <form class="row p-3" method="post" action="/creado">
+        {!! csrf_field() !!}
+
+        <form
+                class="row p-3"
+                method="post"
+                action="/creado"
+        >
             <div class="col">
                 <div class="form-group">
                     <label>Nombre participante:</label>
-                    <input type="text" class="form-control" name="name" aria-describedby="emailHelp" placeholder="Ej: Pepita Pérez">
+                    <input
+                            type="text"
+                            class="form-control"
+                            name="name"
+                            aria-describedby="emailHelp"
+                            placeholder="Ej: Pepita Pérez"
+                    >
                 </div>
                 <div class="form-group">
                     <label>Dojo:</label>
-                    <input type="text" class="form-control" name="dojo" placeholder="Ej: Dojo Alcaraz">
+                    <input
+                            type="text"
+                            class="form-control"
+                            name="dojo"
+                            placeholder="Ej: Dojo Alcaraz"
+                    >
                 </div>
                 <div class="form-group">
                     <label>Género:</label>
@@ -38,7 +55,12 @@
             <div class="col">
                 <div class="form-group">
                     <label>Edad:</label>
-                    <input type="number" class="form-control" name="age" placeholder="Ej: 16">
+                    <input
+                            type="number"
+                            class="form-control"
+                            name="age"
+                            placeholder="Ej: 16"
+                    >
                 </div>
                 <div class="form-group">
                     <label>Cinturón:</label>
@@ -61,10 +83,19 @@
                 </div>
                 <div class="form-group">
                     <label>Peso en kilogramos: (sólo para categoría kumite)</label>
-                    <input type="number" class="form-control" name="weight" placeholder="Ej: 73">
+                    <input
+                            type="number"
+                            class="form-control"
+                            name="weight"
+                            placeholder="Ej: 73"
+                    >
                 </div>
-
-                <button type="submit" class="btn btn-primary mt-4">Crear participante</button>
+                <button
+                        type="submit"
+                        class="btn btn-primary mt-4"
+                >
+                    Crear participante
+                </button>
             </div>
         </form>
 
