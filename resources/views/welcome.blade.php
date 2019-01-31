@@ -65,19 +65,19 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            {{--@if (Route::has('login'))--}}
-                {{--<div class="top-right links">--}}
-                    {{--@auth--}}
-                        {{--<a href="{{ url('/home') }}">Home</a>--}}
-                    {{--@else--}}
-                        {{--<a href="{{ route('login') }}">Login</a>--}}
+            @if (Route::has('login'))
+                <div class="top-right links">
+                    @auth
+                        <a href="{{ url('/') }}">Inicio</a>
+                    @else
+                        <a href="{{ route('login') }}">Iniciar sesión</a>
 
-                        {{--@if (Route::has('register'))--}}
-                            {{--<a href="{{ route('register') }}">Register</a>--}}
-                        {{--@endif--}}
-                    {{--@endauth--}}
-                {{--</div>--}}
-            {{--@endif--}}
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}">Registrarse</a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
 
             <div class="content">
                 <div class="title m-b-md">
@@ -88,11 +88,22 @@
                     Esta es una app para gestionar campeonatos de artes marciales.
                 </div>
 
-                <div class="links">
-                    <a href="http://localhost:8000/crear">Crear participantes</a>
-                    <a href="http://localhost:8000/campeonato">Campeonato</a>
-                    <a href="http://localhost:8000/ganadores">Ganadores</a>
-                </div>
+                @if (Route::has('login'))
+                    <div class="links">
+                        @auth
+                                <a href="http://localhost:8000/crear">Crear participantes</a>
+                                <a href="http://localhost:8000/campeonato">Campeonato</a>
+                                <a href="http://localhost:8000/ganadores">Ganadores</a>
+                        @else
+                            <a href="{{ route('login') }}">Iniciar sesión</a>
+
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}">Registrarse</a>
+                            @endif
+                        @endauth
+                    </div>
+                @endif
+
             </div>
         </div>
     </body>

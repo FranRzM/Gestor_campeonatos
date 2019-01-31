@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Participante;
+
 class ParticipanteController extends Controller
 {
     /**
@@ -34,21 +36,20 @@ class ParticipanteController extends Controller
      */
     public function store(Request $request)
     {
-        echo ('Llega store '. $request);
-//
-//            $datos -> id = $request -> input('id');
-//            $datos->name = $request->input('name');
-//            $datos->type = $request->input('type');
-//            $datos->age = $request->input('age');
-//            $datos->belt = $request->input('belt');
-//            $datos->weight = $request->input('weight');
-//            $datos->dojo = $request->input('dojo');
-//            $datos->gender = $request->input('gender');
-//
-//            $datos->save();
-//
-//            return view('creado', ['datos']);
-//        }
+
+        $participante = new Participante();
+
+        $participante -> name = $request -> input('name');
+        $participante -> type = $request -> input('type');
+        $participante -> age = $request -> input('age');
+        $participante -> belt = $request -> input('belt');
+        $participante -> weight = $request -> input('weight');
+        $participante -> dojo = $request -> input('dojo');
+        $participante -> gender = $request -> input('gender');
+
+        $participante -> save();
+
+        return view('creado');
     }
 
     /**

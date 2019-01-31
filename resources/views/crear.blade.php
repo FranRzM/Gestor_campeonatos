@@ -10,13 +10,15 @@
 
         <h2 class="p-4">Crear participantes:</h2>
 
-        {!! csrf_field() !!}
 
         <form
                 class="row p-3"
                 method="post"
                 action="/participante"
         >
+
+            {!! csrf_field() !!}
+
             <div class="col">
                 <div class="form-group">
                     <label>Nombre participante:</label>
