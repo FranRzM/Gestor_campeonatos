@@ -15,7 +15,7 @@
         <form
                 class="row p-3"
                 method="post"
-                action="/creado"
+                action="/participante"
         >
             <div class="col">
                 <div class="form-group">

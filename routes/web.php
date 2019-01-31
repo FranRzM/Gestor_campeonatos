@@ -22,3 +22,4 @@ Route::get('/crear', 'CrearController@index');
 Route::get('/campeonato', 'CampeonatoController@index');
 Route::get('/ganadores', 'GanadoresController@index');
 Route::post('/creado', 'CrearController@creado');
+Route::resource('participante', 'ParticipanteController');

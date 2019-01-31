@@ -10,6 +10,4 @@
 
     Creación de participante realizada con éxito.
 
-
-
 @endsection
