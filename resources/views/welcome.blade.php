@@ -68,7 +68,25 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/') }}">Inicio</a>
+                        <a
+                                id="navbarDropdown"
+                                class="nav-link dropdown-toggle"
+                                href="{{ route('home') }}"
+                        >
+                            {{ $user = \Illuminate\Support\Facades\Auth::user() -> name }}
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a
+                                    href="{{ route('logout') }}"
+                                    class="dropdown-item"
+                                    onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();"
+                            >
+                                {{ __('Logout') }}
+                            </a>
+
+                        </div>
                     @else
                         <a href="{{ route('login') }}">Iniciar sesión</a>
 
@@ -91,9 +109,11 @@
                 @if (Route::has('login'))
                     <div class="links">
                         @auth
-                                <a href="http://localhost:8000/crear">Crear participantes</a>
-                                <a href="http://localhost:8000/campeonato">Campeonato</a>
-                                <a href="http://localhost:8000/ganadores">Ganadores</a>
+                                <a class="nav-link" href="{{ route('crearParticipante') }}">Crear participantes</a>
+                                <a class="nav-link" href="/participante">Participantes</a>
+                                {{--<a class="nav-link" href="{{ route('crearCampeonato') }}">Crear campeonato</a>--}}
+                                <a class="nav-link" href="{{ route('campeonato') }}">Campeonatos</a>
+                                <a class="nav-link" href="{{ route('ganadores') }}">Ganadores</a>
                         @else
                             <a href="{{ route('login') }}">Iniciar sesión</a>
 

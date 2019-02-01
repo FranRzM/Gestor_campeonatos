@@ -17,9 +17,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/crear', 'CrearController@index');
-Route::get('/campeonato', 'CampeonatoController@index');
-Route::get('/ganadores', 'GanadoresController@index');
-Route::post('/creado', 'CrearController@creado');
-Route::resource('participante', 'ParticipanteController');
+Route::get('/home', 'HomeController@index') -> name('home');
+Route::get('/crear-participante', 'CrearParticipanteController@index') -> name('crearParticipante');
+//Route::get('/crear-campeonato', 'CrearCampeonatoController@index') -> name('crearCampeonato');
+Route::get('/campeonato', 'CampeonatoController@index') -> name('campeonato');
+//Route::post('/campeonato', 'CampeonatoController@index') -> name('campeonato');
+Route::get('/ganadores', 'GanadoresController@index') -> name('ganadores');
+Route::post('/creado', 'CrearParticipanteController@creado') -> name('creado');
+Route::resource('/participante', 'ParticipanteController');

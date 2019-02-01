@@ -39,14 +39,21 @@
                         <!-- Authentication Links -->
                         {{--@guest--}}
                             <li class="nav-item">
-                                <a class="nav-link" href="http://localhost:8000/crear">Crear participantes</a>
+                                <a class="nav-link" href={{ route('crearParticipante') }}>Crear participantes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/participante">Participantes</a>
                             </li>
                             {{--@if (Route::has('register'))--}}
+                            {{--<li class="nav-item">--}}
+                                {{--<a class="nav-link" href="{{ route('crearCampeonato') }}">Crear campeonato</a>--}}
+                            {{--</li>--}}
                             <li class="nav-item">
-                                <a class="nav-link" href="http://localhost:8000/campeonato">Campeonato</a>
+                                <a class="nav-link" href={{ route('campeonato') }}>Campeonatos</a>
                             </li>
+
                             <li class="nav-item">
-                                <a class="nav-link" href="http://localhost:8000/ganadores">Ganadores</a>
+                                <a class="nav-link" href={{ route('ganadores') }}>Ganadores</a>
                             </li>
 
                     </ul>

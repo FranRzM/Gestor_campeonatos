@@ -2,14 +2,14 @@
 /**
  * Created by PhpStorm.
  * User: Elepc
- * Date: 30/01/2019
- * Time: 12:53
+ * Date: 01/02/2019
+ * Time: 11:58
  */
 
 namespace App\Http\Controllers;
 
 
-class GanadoresController extends Controller
+class CrearCampeonatoController extends Controller
 {
 
     public function __construct()
@@ -18,6 +18,7 @@ class GanadoresController extends Controller
     }
 
     public function index () {
-        return view('ganadores');
+
+        return view('crearCampeonato');
     }
 }
