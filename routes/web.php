@@ -19,9 +19,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index') -> name('home');
 Route::get('/crear-participante', 'CrearParticipanteController@index') -> name('crearParticipante');
-//Route::get('/crear-campeonato', 'CrearCampeonatoController@index') -> name('crearCampeonato');
+Route::get('/crear-campeonato', 'CrearCampeonatoController@index') -> name('crearCampeonato');
 Route::get('/campeonato', 'CampeonatoController@index') -> name('campeonato');
-//Route::post('/campeonato', 'CampeonatoController@index') -> name('campeonato');
+Route::post('/campeonato', 'CampeonatoController@store') -> name('creadoCampeonato');
 Route::get('/ganadores', 'GanadoresController@index') -> name('ganadores');
-Route::post('/creado', 'CrearParticipanteController@creado') -> name('creado');
+Route::post('/creado', 'CrearParticipanteController@creado') -> name('creadoParticipante');
 Route::resource('/participante', 'ParticipanteController');

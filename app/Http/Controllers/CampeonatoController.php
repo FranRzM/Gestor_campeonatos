@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Participante;
 use Illuminate\Http\Request;
 
 use App\Models\Campeonato;
@@ -30,8 +31,10 @@ class CampeonatoController extends Controller
     public function index () {
 
 //        $campeonato = new Campeonato();
+        $campeonatos = Campeonato::all();
+        $i = 0;
 
-        return view('campeonato');
+        return view('campeonato', ['campeonatos' => $campeonatos, 'i' => $i]);
     }
 
     /**
@@ -52,20 +55,17 @@ class CampeonatoController extends Controller
      */
     public function store(Request $request)
     {
-//
-//        $participante = new Participante();
-//
-//        $participante -> name = $request -> input('name');
-//        $participante -> type = $request -> input('type');
-//        $participante -> age = $request -> input('age');
-//        $participante -> belt = $request -> input('belt');
-//        $participante -> weight = $request -> input('weight');
-//        $participante -> dojo = $request -> input('dojo');
-//        $participante -> gender = $request -> input('gender');
-//
-//        $participante -> save();
-//
-//        return view('creado', ['participante' => $participante]);
+
+        $campeonato = new Campeonato();
+
+        $campeonato -> name = $request -> input('name');
+        $campeonato -> place = $request -> input('place');
+        $campeonato -> date = $request -> input('date');
+        $campeonato -> type = $request -> input('type');
+
+        $campeonato -> save();
+
+        return view('creadoCampeonato', ['campeonato' => $campeonato]);
     }
 
     /**

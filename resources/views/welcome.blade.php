@@ -111,9 +111,9 @@
                         @auth
                                 <a class="nav-link" href="{{ route('crearParticipante') }}">Crear participantes</a>
                                 <a class="nav-link" href="/participante">Participantes</a>
-                                {{--<a class="nav-link" href="{{ route('crearCampeonato') }}">Crear campeonato</a>--}}
+                                <a class="nav-link" href="{{ route('crearCampeonato') }}">Crear campeonato</a>
                                 <a class="nav-link" href="{{ route('campeonato') }}">Campeonatos</a>
-                                <a class="nav-link" href="{{ route('ganadores') }}">Ganadores</a>
+                                {{--<a class="nav-link" href="{{ route('ganadores') }}">Ganadores</a>--}}
                         @else
                             <a href="{{ route('login') }}">Iniciar sesión</a>
 

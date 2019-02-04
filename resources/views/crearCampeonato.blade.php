@@ -14,7 +14,7 @@
     <form
             class="row p-3"
             method="post"
-            action="/campeonato"
+            action="{{ route('creadoCampeonato') }}"
     >
 
         {!! csrf_field() !!}
@@ -51,70 +51,6 @@
                     <option>Kata y kumite</option>
                 </select>
             </div>
-        </div>
-        <div class="col">
-            <div class="form-group">
-                <label>Categorías por edad:</label>
-                <input
-                        type="number"
-                        class="form-control"
-                        name="age"
-                        placeholder="Ej: 16"
-                >
-            </div>
-            <div class="form-group">
-                <label class="row">Categoría por cinturón para katas:</label>
-                <div class="row">
-                    <div class="col">
-                        <label>Menos de:</label>
-                        <select name="belt" class="form-control">
-                            <option>10º Kyu</option>
-                            <option>9º Kyu</option>
-                            <option>8º Kyu</option>
-                            <option>7º Kyu</option>
-                            <option>6º Kyu</option>
-                            <option>5º Kyu</option>
-                            <option>4º Kyu</option>
-                            <option>3º Kyu</option>
-                            <option>2º Kyu</option>
-                            <option>1º Kyu</option>
-                            <option>1º Dan</option>
-                            <option>2º Dan</option>
-                            <option>3º Dan</option>
-                            <option>4º Dan</option>
-                        </select>
-                    </div>
-                    <div class="col">
-                        <label>Más de:</label>
-                        <select name="belt" class="form-control">
-                            <option>10º Kyu</option>
-                            <option>9º Kyu</option>
-                            <option>8º Kyu</option>
-                            <option>7º Kyu</option>
-                            <option>6º Kyu</option>
-                            <option>5º Kyu</option>
-                            <option>4º Kyu</option>
-                            <option>3º Kyu</option>
-                            <option>2º Kyu</option>
-                            <option>1º Kyu</option>
-                            <option>1º Dan</option>
-                            <option>2º Dan</option>
-                            <option>3º Dan</option>
-                            <option>4º Dan</option>
-                        </select>
-                    </div>
-                </div>
-
-            </div>
-            <div class="form-group">
-                <label>Categorías por peso en kilogramos para kumite:</label>
-                <input
-                        type="number"
-                        class="form-control"
-                        name="weight"
-                        placeholder="Ej: 73"
-                >
-            </div>
             <button
                     type="submit"
                     class="btn btn-primary mt-4"
@@ -123,5 +59,69 @@
             </button>
         </div>
     </form>
-
 @endsection
+
+        {{--</div>--}}
+        {{--<div class="col">--}}
+            {{--<div class="form-group">--}}
+                {{--<label>Categorías por edad:</label>--}}
+                {{--<input--}}
+                        {{--type="number"--}}
+                        {{--class="form-control"--}}
+                        {{--name="age"--}}
+                        {{--placeholder="Ej: 16"--}}
+                {{-->--}}
+            {{--</div>--}}
+            {{--<div class="form-group">--}}
+                {{--<label class="row">Categoría por cinturón para katas:</label>--}}
+                {{--<div class="row">--}}
+                    {{--<div class="col">--}}
+                        {{--<label>Inferior a:</label>--}}
+                        {{--<select name="belt" class="form-control">--}}
+                            {{--<option>10º Kyu</option>--}}
+                            {{--<option>9º Kyu</option>--}}
+                            {{--<option>8º Kyu</option>--}}
+                            {{--<option>7º Kyu</option>--}}
+                            {{--<option>6º Kyu</option>--}}
+                            {{--<option>5º Kyu</option>--}}
+                            {{--<option>4º Kyu</option>--}}
+                            {{--<option>3º Kyu</option>--}}
+                            {{--<option>2º Kyu</option>--}}
+                            {{--<option>1º Kyu</option>--}}
+                            {{--<option>1º Dan</option>--}}
+                            {{--<option>2º Dan</option>--}}
+                            {{--<option>3º Dan</option>--}}
+                            {{--<option>4º Dan</option>--}}
+                        {{--</select>--}}
+                    {{--</div>--}}
+                    {{--<div class="col">--}}
+                        {{--<label>Superior a:</label>--}}
+                        {{--<select name="belt" class="form-control">--}}
+                            {{--<option>10º Kyu</option>--}}
+                            {{--<option>9º Kyu</option>--}}
+                            {{--<option>8º Kyu</option>--}}
+                            {{--<option>7º Kyu</option>--}}
+                            {{--<option>6º Kyu</option>--}}
+                            {{--<option>5º Kyu</option>--}}
+                            {{--<option>4º Kyu</option>--}}
+                            {{--<option>3º Kyu</option>--}}
+                            {{--<option>2º Kyu</option>--}}
+                            {{--<option>1º Kyu</option>--}}
+                            {{--<option>1º Dan</option>--}}
+                            {{--<option>2º Dan</option>--}}
+                            {{--<option>3º Dan</option>--}}
+                            {{--<option>4º Dan</option>--}}
+                        {{--</select>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+
+            {{--</div>--}}
+            {{--<div class="form-group">--}}
+                {{--<label>Categorías por peso en kilogramos para kumite:</label>--}}
+                {{--<input--}}
+                        {{--type="number"--}}
+                        {{--class="form-control"--}}
+                        {{--name="weight"--}}
+                        {{--placeholder="Ej: 73"--}}
+                {{-->--}}
+            {{--</div>--}}

@@ -14,7 +14,7 @@
         <form
                 class="row p-3"
                 method="post"
-                action="/participante"
+                action="/crearParticipante"
         >
 
             {!! csrf_field() !!}
