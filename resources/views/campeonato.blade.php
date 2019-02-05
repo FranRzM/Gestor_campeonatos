@@ -7,7 +7,7 @@
     @foreach($campeonatos as $campeonato)
 
         <div class="p-3">
-            Campeonato Nº {{ $i }}
+            Campeonato Nº {{ $i + 1 }}
         </div>
 
         <table class="table table-striped p-2">

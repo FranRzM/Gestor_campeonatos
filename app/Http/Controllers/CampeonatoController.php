@@ -8,7 +8,6 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Models\Participante;
 use Illuminate\Http\Request;
 

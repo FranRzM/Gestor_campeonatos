@@ -14,7 +14,7 @@
         <form
                 class="row p-3"
                 method="post"
-                action="/crearParticipante"
+                action="{{ route('crearParticipante') }}"
         >
 
             {!! csrf_field() !!}
@@ -53,16 +53,27 @@
                         <option>Kata</option>
                     </select>
                 </div>
+                <button
+                        type="submit"
+                        class="btn btn-primary mt-4"
+                >
+                    Crear participante
+                </button>
             </div>
             <div class="col">
                 <div class="form-group">
                     <label>Edad:</label>
-                    <input
-                            type="number"
-                            class="form-control"
-                            name="age"
-                            placeholder="Ej: 16"
-                    >
+                    <div class="input-group">
+                        <input
+                                type="number"
+                                class="form-control"
+                                name="age"
+                                placeholder="Ej: 16"
+                        >
+                        <div class="input-group-append">
+                            <span class="input-group-text">Años</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label>Cinturón:</label>
@@ -84,20 +95,41 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Peso en kilogramos: (sólo para categoría kumite)</label>
-                    <input
-                            type="number"
-                            class="form-control"
-                            name="weight"
-                            placeholder="Ej: 73"
-                    >
+                    <label>Peso: (sólo para categoría kumite)</label>
+                    <div class="input-group">
+                        <input
+                                type="number"
+                                class="form-control"
+                                name="weight"
+                                placeholder="Ej: 73"
+                        >
+                        <div class="input-group-append">
+                            <span class="input-group-text">Kg</span>
+                        </div>
+                    </div>
                 </div>
-                <button
-                        type="submit"
-                        class="btn btn-primary mt-4"
-                >
-                    Crear participante
-                </button>
+                <div class="form-check">
+                    <label>Selecciona los campeonatos en los que participa:</label>
+                    @for($i = 0; $i < $campeonatos -> count(); $i++)
+
+                        <div class="form-check">
+                            <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    id="inlineCheckbox{{ $i + 1 }}"
+                                    value="{{ $campeonatos[$i] -> id }}"
+                                    name="championships"
+                            >
+                            <label
+                                    class="form-check-label"
+                                    for="inlineCheckbox{{ $i + 1 }}"
+                            >
+                                {{ $campeonatos[$i] -> name }}, {{ $campeonatos[$i] -> place }}.
+                            </label>
+                        </div>
+
+                    @endfor
+                </div>
             </div>
         </form>
 

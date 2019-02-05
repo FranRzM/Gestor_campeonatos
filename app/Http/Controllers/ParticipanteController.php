@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use function GuzzleHttp\Promise\all;
 use Illuminate\Http\Request;
 
 use App\Models\Participante;
+use App\Models\Campeonato;
 
 class ParticipanteController extends Controller
 {
