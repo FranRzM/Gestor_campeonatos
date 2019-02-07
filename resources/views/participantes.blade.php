@@ -14,6 +14,8 @@
             Participante Nº {{ $i }}
         </div>
 
+        <div class="invisible">{{ $i++ }}</div>
+
         <table class="table table-striped p-2">
             <thead>
             <tr>
@@ -39,13 +41,15 @@
             <tr>
                 <th scope="row">Peso:</th>
                 <td>{{ $participante -> weight }} kg</td>
-                <th scope="row">Estado:</th>
-                <td>Inscrito</td>
+                <th scope="row">Campeonato:</th>
+                @for($j = 0; $j < $campeonato -> count(); $j++)
+                    @if($participante -> id_campeonato == $campeonato[$j] -> id)
+                        <td>{{ $campeonato[$j] -> name }}, {{ $campeonato[$j] -> place }}</td>
+                    @endif
+                @endfor
             </tr>
             </tbody>
         </table>
-
-        <div class="invisible">{{ $i++ }}</div>
 
     @endforeach
 

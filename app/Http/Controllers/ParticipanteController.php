@@ -25,8 +25,9 @@ class ParticipanteController extends Controller
     {
 
         $participantes = Participante::all();
+        $campeonato = Campeonato::all();
 
-        return view('participantes', ['participantes' => $participantes, 'i' => 0]);
+        return view('participantes', ['participantes' => $participantes, 'i' => 0, 'campeonato' => $campeonato]);
     }
 
     /**
@@ -49,6 +50,8 @@ class ParticipanteController extends Controller
     {
 
         $participante = new Participante();
+        $campeonato = Campeonato::all();
+        $objCampeonato = (object) array('name' => '', 'place' => '');
 
         $participante -> name = $request -> input('name');
         $participante -> type = $request -> input('type');
@@ -57,10 +60,18 @@ class ParticipanteController extends Controller
         $participante -> weight = $request -> input('weight');
         $participante -> dojo = $request -> input('dojo');
         $participante -> gender = $request -> input('gender');
+        $participante -> id_campeonato = $request -> input('championship');
+
+        for ($i = 0; $i < $campeonato -> count(); $i++) {
+            if ($request -> input('championship') == $campeonato[$i] -> id) {
+                $objCampeonato -> name = $campeonato[$i] -> name;
+                $objCampeonato -> place = $campeonato[$i] -> place;
+            }
+        }
 
         $participante -> save();
 
-        return view('creado', ['participante' => $participante]);
+        return view('creadoParticipante', ['participante' => $participante, 'campeonato' => $objCampeonato]);
     }
 
     /**

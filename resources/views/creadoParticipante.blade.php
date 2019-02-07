@@ -37,13 +37,13 @@
         <tr>
             <th scope="row">Peso:</th>
             <td>{{ $participante -> weight }} kg</td>
-            <th scope="row">Estado:</th>
-            <td>Creado</td>
+            <th scope="row">Campeonato:</th>
+            <td>{{ $campeonato -> name }}, {{ $campeonato -> place }}</td>
         </tr>
         </tbody>
     </table>
 
-    <a href="{{ route('crear') }}" class="p-3">
+    <a href="{{ route('crearParticipante') }}" class="p-3">
         <button type="button" class="btn btn-light p-3">
             Volver
         </button>

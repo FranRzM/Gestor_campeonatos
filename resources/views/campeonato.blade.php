@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('titulo')
+
+    Campeonatos
+
+@endsection
+
 @section('content')
 
     <h2>Campeonatos</h2>

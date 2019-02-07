@@ -14,7 +14,7 @@
         <form
                 class="row p-3"
                 method="post"
-                action="{{ route('crearParticipante') }}"
+                action="{{ route('participante') }}"
         >
 
             {!! csrf_field() !!}
@@ -51,6 +51,7 @@
                     <select name="type" class="form-control">
                         <option>Kumite</option>
                         <option>Kata</option>
+                        <option>Kata y kumite</option>
                     </select>
                 </div>
                 <button
@@ -108,27 +109,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-check">
-                    <label>Selecciona los campeonatos en los que participa:</label>
-                    @for($i = 0; $i < $campeonatos -> count(); $i++)
+                <div class="form-group">
+                    <label>Campeonato:</label>
+                    <select name="championship" class="form-control">
 
-                        <div class="form-check">
-                            <input
-                                    class="form-check-input"
-                                    type="checkbox"
-                                    id="inlineCheckbox{{ $i + 1 }}"
-                                    value="{{ $campeonatos[$i] -> id }}"
-                                    name="championships"
-                            >
-                            <label
-                                    class="form-check-label"
-                                    for="inlineCheckbox{{ $i + 1 }}"
-                            >
-                                {{ $campeonatos[$i] -> name }}, {{ $campeonatos[$i] -> place }}.
-                            </label>
-                        </div>
+                        @for($i = 0; $i < $campeonatos -> count(); $i++)
 
-                    @endfor
+                            <option value="{{ $campeonatos[$i] -> id }}">
+                                {{ $campeonatos[$i] -> name }}, {{ $campeonatos[$i] -> place }}
+                            </option>
+
+                        @endfor
+
+                    </select>
                 </div>
             </div>
         </form>
