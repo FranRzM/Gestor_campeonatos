@@ -16,6 +16,26 @@
             Campeonato Nº {{ $i + 1 }}
         </div>
 
+        <div class="p-1">
+            <button
+                    type="submit"
+                    class="btn btn-danger"
+                    formaction="{{ route('eliminarCampeonato') }}"
+                    formmethod="DELETE"
+                    value="{{ $campeonato -> id }}"
+            >
+                Eliminar
+            </button>
+            <button
+                    type="submit"
+                    class="btn btn-secondary"
+                    formaction="{{ route('editarCampeonato') }}"
+                    formmethod="get"
+            >
+                Editar
+            </button>
+        </div>
+
         <table class="table table-striped p-2">
             <thead>
             <tr>

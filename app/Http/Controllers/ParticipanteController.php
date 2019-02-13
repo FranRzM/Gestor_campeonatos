@@ -96,6 +96,11 @@ class ParticipanteController extends Controller
         echo ('Llega edit');
     }
 
+    public function editView($id)
+    {
+
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -116,7 +121,7 @@ class ParticipanteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        echo ("delete");
     }
 }
 
