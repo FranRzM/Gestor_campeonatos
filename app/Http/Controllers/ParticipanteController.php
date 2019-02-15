@@ -91,14 +91,45 @@ class ParticipanteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        echo ('Llega edit');
+
+        $deleteParticipante = Participante::find($id);
+
+        $deleteParticipante -> delete();
+
+        $participante = new Participante();
+        $campeonato = Campeonato::all();
+        $objCampeonato = (object) array('name' => '', 'place' => '');
+
+        $participante -> name = $request -> input('name');
+        $participante -> type = $request -> input('type');
+        $participante -> age = $request -> input('age');
+        $participante -> belt = $request -> input('belt');
+        $participante -> weight = $request -> input('weight');
+        $participante -> dojo = $request -> input('dojo');
+        $participante -> gender = $request -> input('gender');
+        $participante -> id_campeonato = $request -> input('championship');
+
+        for ($i = 0; $i < $campeonato -> count(); $i++) {
+            if ($request -> input('championship') == $campeonato[$i] -> id) {
+                $objCampeonato -> name = $campeonato[$i] -> name;
+                $objCampeonato -> place = $campeonato[$i] -> place;
+            }
+        }
+
+        $participante -> save();
+
+        return view('editadoParticipante', ['participante' => $participante, 'campeonato' => $objCampeonato]);
+
     }
 
     public function editView($id)
     {
+        $participante = Participante::find($id);
+        $campeonatos = Campeonato::all('id', 'name', 'place');
 
+        return view('editarParticipante', ['participante' => $participante, 'campeonatos' => $campeonatos]);
     }
 
     /**
@@ -121,7 +152,11 @@ class ParticipanteController extends Controller
      */
     public function destroy($id)
     {
-        echo ("delete");
+        $participante = Participante::find($id);
+
+        $participante -> delete();
+
+        return view('eliminadoParticipante');
     }
 }
 

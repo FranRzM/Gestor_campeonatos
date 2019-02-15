@@ -13,27 +13,28 @@
     @foreach($participantes as $participante)
 
         <div class="p-3">
-            Participante Nº {{ $i }}
+            Participante Nº {{ $i + 1 }}:
         </div>
 
         <div class="p-1">
-            <button
-                    type="submit"
-                    class="btn btn-danger"
-                    formaction="{{ route('eliminarParticipante') }}"
-                    formmethod="DELETE"
-                    value="{{ $participante -> id }}"
-            >
-                Eliminar
-            </button>
-            <button
-                    type="submit"
-                    class="btn btn-secondary"
-                    formaction="{{ route('editarParticipante') }}"
-                    formmethod="get"
-            >
-                Editar
-            </button>
+            {{$participante ->  id}}
+            <form action="{{ route('eliminarParticipante', $participante -> id) }}" >
+                <button
+                        type="submit"
+                        class="btn btn-danger"
+                >
+                    Eliminar
+                </button>
+            </form>
+
+            <form action="{{ route('editarParticipante', $participante -> id) }}" method="get">
+                <button
+                        type="submit"
+                        class="btn btn-secondary"
+                >
+                    Editar
+                </button>
+            </form>
         </div>
 
         <div class="invisible">{{ $i++ }}</div>

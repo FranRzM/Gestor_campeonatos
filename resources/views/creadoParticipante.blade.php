@@ -12,6 +12,27 @@
 
     <h4 class="p-2">Datos introducidos:</h4>
 
+    <div class="p-1">
+        {{$participante ->  id}}
+        <form action="{{ route('eliminarParticipante', $participante -> id) }}" >
+            <button
+                    type="submit"
+                    class="btn btn-danger"
+            >
+                Eliminar
+            </button>
+        </form>
+
+        <form action="{{ route('editarParticipante', $participante -> id) }}">
+            <button
+                    type="submit"
+                    class="btn btn-secondary"
+            >
+                Editar
+            </button>
+        </form>
+    </div>
+
     <table class="table table-striped p-2">
         <thead>
         <tr>
