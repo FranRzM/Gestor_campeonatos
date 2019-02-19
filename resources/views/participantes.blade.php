@@ -17,24 +17,23 @@
         </div>
 
         <div class="p-1">
-            {{$participante ->  id}}
-            <form action="{{ route('eliminarParticipante', $participante -> id) }}" >
+            <a href="{{ route('eliminarParticipante', $participante -> id) }}" >
                 <button
                         type="submit"
                         class="btn btn-danger"
                 >
                     Eliminar
                 </button>
-            </form>
+            </a>
 
-            <form action="{{ route('editarParticipante', $participante -> id) }}" method="get">
+            <a href="{{ route('editarParticipante', $participante -> id) }}">
                 <button
                         type="submit"
                         class="btn btn-secondary"
                 >
                     Editar
                 </button>
-            </form>
+            </a>
         </div>
 
         <div class="invisible">{{ $i++ }}</div>

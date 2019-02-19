@@ -17,23 +17,22 @@
         </div>
 
         <div class="p-1">
-            <button
-                    type="submit"
-                    class="btn btn-danger"
-                    formaction="{{ route('eliminarCampeonato') }}"
-                    formmethod="DELETE"
-                    value="{{ $campeonato -> id }}"
-            >
-                Eliminar
-            </button>
-            <button
-                    type="submit"
-                    class="btn btn-secondary"
-                    formaction="{{ route('editarCampeonato') }}"
-                    formmethod="get"
-            >
-                Editar
-            </button>
+            <a href="{{ route('eliminarCampeonato', $campeonato -> id) }}">
+                <button
+                        type="submit"
+                        class="btn btn-danger"
+                >
+                    Eliminar
+                </button>
+            </a>
+            <a href="{{ route('editarCampeonato', $campeonato -> id) }}">
+                <button
+                        type="submit"
+                        class="btn btn-secondary"
+                >
+                    Editar
+                </button>
+            </a>
         </div>
 
         <table class="table table-striped p-2">

@@ -13,7 +13,7 @@
     <form
             class="row p-3"
             method="post"
-            action="{{ route('editadoCampeonato') }}"
+            action="{{ route('editarCampeonato', $campeonato -> id) }}"
     >
 
         {!! csrf_field() !!}
@@ -27,6 +27,7 @@
                         name="name"
                         aria-describedby="emailHelp"
                         placeholder="Ej: Campeonato Ciudad del Sol."
+                        value="{{ $campeonato -> name }}"
                 >
             </div>
             <div class="form-group">
@@ -36,91 +37,44 @@
                         class="form-control"
                         name="place"
                         placeholder="Ej: Polideportivo San José."
+                        value="{{ $campeonato -> place }}"
                 >
             </div>
             <div class="form-group">
                 <label>Fecha del evento:</label>
-                <input name="date" class="form-control" type="date" />
+                <input
+                        name="date"
+                        class="form-control"
+                        type="date"
+                        value="{{ $campeonato -> date }}"
+                />
             </div>
             <div class="form-group">
                 <label>Categorías del campeonato:</label>
                 <select name="type" class="form-control">
-                    <option>Kumite</option>
-                    <option>Kata</option>
-                    <option>Kata y kumite</option>
+
+                    @if($campeonato -> type == 'Kumite')
+                        <option selected="selected">Kumite</option>
+                        <option>Kata</option>
+                        <option>Kata y kumite</option>
+                    @elseif($campeonato -> type == 'Kata')
+                        <option>Kumite</option>
+                        <option selected="selected">Kata</option>
+                        <option>Kata y kumite</option>
+                    @else
+                        <option>Kumite</option>
+                        <option>Kata</option>
+                        <option selected="selected">Kata y kumite</option>
+                    @endif
+
                 </select>
             </div>
             <button
                     type="submit"
                     class="btn btn-primary mt-4"
             >
-                Crear campeonato
+                Editar campeonato
             </button>
         </div>
     </form>
 @endsection
-
-        {{--</div>--}}
-        {{--<div class="col">--}}
-            {{--<div class="form-group">--}}
-                {{--<label>Categorías por edad:</label>--}}
-                {{--<input--}}
-                        {{--type="number"--}}
-                        {{--class="form-control"--}}
-                        {{--name="age"--}}
-                        {{--placeholder="Ej: 16"--}}
-                {{-->--}}
-            {{--</div>--}}
-            {{--<div class="form-group">--}}
-                {{--<label class="row">Categoría por cinturón para katas:</label>--}}
-                {{--<div class="row">--}}
-                    {{--<div class="col">--}}
-                        {{--<label>Inferior a:</label>--}}
-                        {{--<select name="belt" class="form-control">--}}
-                            {{--<option>10º Kyu</option>--}}
-                            {{--<option>9º Kyu</option>--}}
-                            {{--<option>8º Kyu</option>--}}
-                            {{--<option>7º Kyu</option>--}}
-                            {{--<option>6º Kyu</option>--}}
-                            {{--<option>5º Kyu</option>--}}
-                            {{--<option>4º Kyu</option>--}}
-                            {{--<option>3º Kyu</option>--}}
-                            {{--<option>2º Kyu</option>--}}
-                            {{--<option>1º Kyu</option>--}}
-                            {{--<option>1º Dan</option>--}}
-                            {{--<option>2º Dan</option>--}}
-                            {{--<option>3º Dan</option>--}}
-                            {{--<option>4º Dan</option>--}}
-                        {{--</select>--}}
-                    {{--</div>--}}
-                    {{--<div class="col">--}}
-                        {{--<label>Superior a:</label>--}}
-                        {{--<select name="belt" class="form-control">--}}
-                            {{--<option>10º Kyu</option>--}}
-                            {{--<option>9º Kyu</option>--}}
-                            {{--<option>8º Kyu</option>--}}
-                            {{--<option>7º Kyu</option>--}}
-                            {{--<option>6º Kyu</option>--}}
-                            {{--<option>5º Kyu</option>--}}
-                            {{--<option>4º Kyu</option>--}}
-                            {{--<option>3º Kyu</option>--}}
-                            {{--<option>2º Kyu</option>--}}
-                            {{--<option>1º Kyu</option>--}}
-                            {{--<option>1º Dan</option>--}}
-                            {{--<option>2º Dan</option>--}}
-                            {{--<option>3º Dan</option>--}}
-                            {{--<option>4º Dan</option>--}}
-                        {{--</select>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-
-            {{--</div>--}}
-            {{--<div class="form-group">--}}
-                {{--<label>Categorías por peso en kilogramos para kumite:</label>--}}
-                {{--<input--}}
-                        {{--type="number"--}}
-                        {{--class="form-control"--}}
-                        {{--name="weight"--}}
-                        {{--placeholder="Ej: 73"--}}
-                {{-->--}}
-            {{--</div>--}}

@@ -8,9 +8,9 @@
 
 @section('content')
 
-    <h2 class="p-3">Eliminación de participante realizada con éxito.</h2>
+    <h2 class="p-3">Eliminación de campeonato realizada con éxito.</h2>
 
-    <a href="{{ route('participante') }}" class="p-3">
+    <a href="{{ route('campeonato') }}" class="p-3">
         <button type="button" class="btn btn-light p-3">
             Volver
         </button>

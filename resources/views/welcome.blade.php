@@ -68,25 +68,12 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a
-                                id="navbarDropdown"
-                                class="nav-link dropdown-toggle"
-                                href="{{ route('home') }}"
-                        >
-                            {{ $user = \Illuminate\Support\Facades\Auth::user() -> name }}
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-right">
                             <a
-                                    href="{{ route('logout') }}"
-                                    class="dropdown-item"
-                                    onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();"
+                                    class="nav-link"
+                                    href="{{ route('home') }}"
                             >
-                                {{ __('Logout') }}
+                                {{ $user = \Illuminate\Support\Facades\Auth::user() -> name }}
                             </a>
-
-                        </div>
                     @else
                         <a href="{{ route('login') }}">Iniciar sesión</a>
 
@@ -109,16 +96,20 @@
                 @if (Route::has('login'))
                     <div class="links">
                         @auth
+
                                 <a class="nav-link" href="{{ route('crearParticipante') }}">Crear participantes</a>
-                                <a class="nav-link" href="/participante">Participantes</a>
+                                <a class="nav-link" href="{{ route('participante') }}">Participantes</a>
                                 <a class="nav-link" href="{{ route('crearCampeonato') }}">Crear campeonato</a>
                                 <a class="nav-link" href="{{ route('campeonato') }}">Campeonatos</a>
-                                {{--<a class="nav-link" href="{{ route('ganadores') }}">Ganadores</a>--}}
+
                         @else
+
                             <a href="{{ route('login') }}">Iniciar sesión</a>
 
                             @if (Route::has('register'))
+
                                 <a href="{{ route('register') }}">Registrarse</a>
+
                             @endif
                         @endauth
                     </div>

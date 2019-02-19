@@ -84,9 +84,30 @@ class CampeonatoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, Request $request)
     {
-        echo ('Llega edit');
+        $deleteCampeonato = Campeonato::find($id);
+
+        $deleteCampeonato -> delete();
+
+        $campeonato = new Campeonato();
+
+        $campeonato -> name = $request -> input('name');
+        $campeonato -> type = $request -> input('type');
+        $campeonato -> place = $request -> input('place');
+        $campeonato -> date = $request -> input('date');
+
+        $campeonato -> save();
+
+        return view('editadoCampeonato', ['campeonato' => $campeonato]);
+
+    }
+
+    public function editView($id) {
+
+        $campeonato = Campeonato::find($id);
+
+        return view('editarCampeonato', ['campeonato' => $campeonato]);
     }
 
     /**
@@ -109,6 +130,10 @@ class CampeonatoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $campeonato = Campeonato::find($id);
+
+        $campeonato -> delete();
+
+        return view('eliminadoCampeonato');
     }
 }

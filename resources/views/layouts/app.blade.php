@@ -36,25 +36,19 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        {{--@guest--}}
+
                             <li class="nav-item">
                                 <a class="nav-link" href={{ route('crearParticipante') }}>Crear participantes</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/participante">Participantes</a>
+                                <a class="nav-link" href="{{ route('participante') }}">Participantes</a>
                             </li>
-                            {{--@if (Route::has('register'))--}}
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('crearCampeonato') }}">Crear campeonato</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href={{ route('campeonato') }}>Campeonatos</a>
                             </li>
-
-                            {{--<li class="nav-item">--}}
-                                {{--<a class="nav-link" href={{ route('ganadores') }}>Ganadores</a>--}}
-                            {{--</li>--}}
 
                     </ul>
                 </div>
