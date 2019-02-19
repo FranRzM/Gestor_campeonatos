@@ -13,7 +13,6 @@
     <h4 class="p-2">Datos introducidos:</h4>
 
     <div class="p-1">
-        {{$participante ->  id}}
         <form action="{{ route('eliminarParticipante', $participante -> id) }}" >
             <button
                     type="submit"
