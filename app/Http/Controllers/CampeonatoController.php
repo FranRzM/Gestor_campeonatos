@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Campeonato;
 
+use App\Http\Controllers\ParticipanteController;
+
 class CampeonatoController extends Controller
 {
 
@@ -131,6 +133,13 @@ class CampeonatoController extends Controller
     public function destroy($id)
     {
         $campeonato = Campeonato::find($id);
+//        $participante = Participante::all();
+//
+//        for ($i = 0; $i < $participante -> count(); $i ++) {
+//            if ($participante[$i] -> id_campeonato === $id) {
+//                Participante::find($participante[$i] -> id) -> delete();
+//            }
+//        }
 
         $campeonato -> delete();
 

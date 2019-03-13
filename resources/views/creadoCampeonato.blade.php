@@ -31,7 +31,7 @@
         </tbody>
     </table>
 
-    <a href="{{ route('crearCampeonato') }}" class="p-3">
+    <a href="{{ route('campeonato') }}" class="p-3">
         <button type="button" class="btn btn-light p-3">
             Volver
         </button>
